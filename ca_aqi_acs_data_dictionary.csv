@@ -1,0 +1,40 @@
+column,description
+state,State from the EPA AQI file.
+county,California county name.
+year,AQI year.
+days_with_aqi,Days with AQI observations.
+good_days,Days with Good AQI.
+moderate_days,Days with Moderate AQI.
+usg_days,Days unhealthy for sensitive groups.
+unhealthy_days,Days with Unhealthy AQI.
+very_unhealthy_days,Days with Very Unhealthy AQI.
+hazardous_days,Days with Hazardous AQI.
+max_aqi,Highest AQI value in the county-year.
+aqi_90th_percentile,90th percentile AQI.
+median_aqi,Median AQI.
+days_co_main_pollutant,Days where CO drove AQI.
+days_no2_main_pollutant,Days where NO2 drove AQI.
+days_ozone_main_pollutant,Days where ozone drove AQI.
+days_pm25_main_pollutant,Days where PM2.5 drove AQI.
+days_pm10_main_pollutant,Days where PM10 drove AQI.
+bad_aqi_days,Total days with AQI worse than Moderate.
+bad_aqi_day_pct,Percent of AQI days that were USG or worse.
+pct_days_co_main_pollutant,Kept or created during cleaning.
+pct_days_no2_main_pollutant,Kept or created during cleaning.
+pct_days_ozone_main_pollutant,Percent of AQI days driven by ozone.
+pct_days_pm25_main_pollutant,Percent of AQI days driven by PM2.5.
+pct_days_pm10_main_pollutant,Kept or created during cleaning.
+geo_id,Census county ID.
+acs_name,Kept or created during cleaning.
+population_25_plus,ACS population age 25 and older.
+pct_high_school_or_higher,Percent with high school degree or higher.
+pct_bachelors_or_higher,Percent with bachelor's degree or higher.
+population_16_plus,ACS population age 16 and older.
+unemployment_rate,ACS unemployment rate.
+median_household_income,Median household income from ACS DP03.
+mean_household_income,Mean household income from ACS DP03.
+per_capita_income,Per capita income from ACS DP03.
+poverty_rate_all_people,Percent of people below the poverty level.
+pct_no_health_insurance,Percent without health insurance.
+income_quartile,County income quartile.
+lower_income_group,True if county is in the lower half by income.
