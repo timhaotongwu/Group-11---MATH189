@@ -1,44 +1,39 @@
 # Data Sources and Data Preparation
 
-## American Community Survey (ACS) Data
+## Data Sources
 
-Socioeconomic and demographic information was obtained from the American Community Survey (ACS), an annual survey conducted by the U.S. Census Bureau. Specifically, we used data from:
+This project combines socioeconomic data from the American Community Survey (ACS) with county-level air quality data to investigate the relationship between socioeconomic conditions and environmental quality across California counties.
 
-- DP02: Selected Social Characteristics
-- DP03: Selected Economic Characteristics
+### American Community Survey (ACS)
 
-These datasets provide county-level information on education, employment, income, poverty, and other demographic characteristics across California.
+Socioeconomic and demographic information was obtained from the United States Census Bureau's American Community Survey (ACS). Specifically, data were collected from the following ACS Data Profile tables:
 
-Several variables from DP02 and DP03 were selected because they are widely used indicators of socioeconomic status, including educational attainment, unemployment rate, median household income, and poverty rate.
+* **DP02: Selected Social Characteristics**
+* **DP03: Selected Economic Characteristics**
 
-## Air Quality Data
+These datasets provide county-level information on educational attainment, employment, income, poverty, health insurance coverage, and other demographic characteristics. The ACS was selected because it is one of the most comprehensive and widely used sources of socioeconomic data in the United States.
 
-Air quality information was collected from county-level Air Quality Index (AQI) records covering the years 2020–2024.
+### Air Quality Data
 
-To reduce the impact of year-to-year fluctuations, AQI measures were averaged across the five-year period. Air quality variables included:
+Air quality information was obtained from county-level Air Quality Index (AQI) records covering the years **2020–2024**. The AQI is a standardized measure used to communicate air pollution levels and associated health risks to the public.
 
-- Average percentage of bad AQI days
-- Median AQI
-- Maximum AQI
-- Pollutant-specific measures for ozone, PM2.5, PM10, NO₂, and CO
+To better represent long-term environmental conditions rather than short-term fluctuations, AQI measures were averaged across the five-year period. The dataset includes information on overall air quality as well as pollutant-specific indicators such as ozone, PM2.5, PM10, NO₂, and CO.
 
-These measures capture both the severity and frequency of air pollution exposure experienced by residents.
+## Data Preparation
 
-## Data Integration
-
-The ACS and AQI datasets were merged at the county level. After cleaning and matching records, the final dataset contained 53 California counties and 37 variables representing socioeconomic and environmental characteristics.
-
-## Feature Selection
+The ACS and AQI datasets were merged at the county level using county identifiers. After cleaning and matching records, the final dataset contained **53 California counties** and **37 variables** representing both socioeconomic and environmental characteristics.
 
 For the clustering analysis, six variables were selected:
 
-- Percentage of adults with a bachelor's degree or higher (`pct_bachelors_or_higher`)
-- Unemployment rate (`unemployment_rate`)
-- Median household income (`median_household_income`)
-- Poverty rate (`poverty_rate_all_people`)
-- Percentage of bad AQI days (`avg_bad_aqi_day_pct_2020_2024`)
-- Median AQI (`avg_median_aqi_2020_2024`)
+* Percentage of adults with a bachelor's degree or higher (`pct_bachelors_or_higher`)
+* Unemployment rate (`unemployment_rate`)
+* Median household income (`median_household_income`)
+* Poverty rate (`poverty_rate_all_people`)
+* Percentage of bad AQI days (`avg_bad_aqi_day_pct_2020_2024`)
+* Median AQI (`avg_median_aqi_2020_2024`)
 
-These variables were chosen because they represent both socioeconomic conditions and environmental quality. Educational attainment, income, unemployment, and poverty are commonly used indicators of socioeconomic status, while AQI-based measures reflect the frequency and severity of air pollution exposure.
+These variables were chosen because they capture two key dimensions of the project: socioeconomic status and environmental exposure. Educational attainment, income, unemployment, and poverty are commonly used indicators of socioeconomic well-being, while AQI-based measures reflect both the frequency and severity of air pollution experienced by residents.
 
-Before clustering, all variables were standardized using z-score normalization to ensure that variables measured on different scales contributed equally to the analysis.
+Prior to clustering, all selected variables were standardized using z-score normalization. Standardization was necessary because the variables were measured on different scales. For example, median household income is measured in dollars, whereas unemployment and poverty are measured as percentages. Without standardization, variables with larger numerical values could dominate the clustering process and bias the results.
+
+After preprocessing, the resulting dataset was used for K-means clustering to identify groups of California counties with similar socioeconomic and environmental profiles.
